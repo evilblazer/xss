@@ -1,0 +1,9 @@
+To test if there is a .git leak 
+
+wget -r project.com/.git
+
+To check if an application’s .git folder is exposed, simply go to the application’s root directory, for example project.com, and add /.git to the URL. There are three possibilities that can happen when you browse to the /.git directory:
+
+If you get a 404 error, this means that the .git directory of the application is not made available to the public, and you won’t be able to leak information this way.
+If you get a 403 error, the .git directory is available on the server, but you won’t be able to directly access the folder’s root, and therefore will not be able to list all the files contained in the directory.
+If you don’t get an error and the server responds with the document tree of the .git directory, you can directly browse the folder’s contents and retrieve any information contained in it.
